@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>Fepasa</title>
+    <script type="module" src="js/controller.js"></script>    
+  </head>
+  <body>
+    <header>  
+      <div class="banner">
+        <div id="section_A">
+          <div class="introduction">
+            <!-- <p class="text">Site dedicado aos <br>trens de passageiros <br>da antiga Fepasa</p> -->
+            <p class="text" data-translate="intro"></p>
+          </div>
+        </div>
+        <div id="section_B">
+          <a href="index.html">
+          <img id="fepasa_logo" src="Images/Logo_fepasa_melhorado.png" alt="Logo Fepasa"></img>
+          </a>    
+        </div>
+        <div id="section_C">
+          <div id="menu" class="text">Menu</div>
+          <div id="menuLang">
+            <div id="menuLangEN" class="EN text">English</div>
+            <div id="menuLangPT" class="PT text hidden">Português</div>
+            <div id="menuLangFR" class="FR text hidden">Français</div>
+            <div id="menuLangES" class="ES text hidden">Español</div>
+          </div>
+        </div>  
+      </div>
+      
+      <div class="window-menu hidden">
+        <ul>
+          <li><a class="menu-options" href="#simulator-container" data-translate="simMenu"></a></li>
+          <li><a class="menu-options" href="#section--1" data-translate="mapMenu"></a></li>
+          <li><a class="menu-options" href="#section--2" data-translate="aboutMenu"></a></li>
+          <!-- <li><a class="menu-options" href="#section--4">Sobre o autor</a></li> -->
+        </ul>
+      </div>
+
+      <div class="lang-menu hidden">
+        <ul>
+          <li><a class="lang-EN" >English</a></li>
+          <li><a class="lang-PT" >Português</a></li>
+          <li><a class="lang-FR" >Français</a></li>
+          <li><a class="lang-ES" >Español</a></li>
+        </ul>
+      </div>
+
+
+      <div id="simulator-container">
+        <div class="frases" data-translate="simulator"></div>
+        <div class="toFrom">
+          <!-- <label for="departureStationSelect">Estação de origem</label> -->
+          <select id="departureStationSelect" class="select">
+            <option value="" disabled selected data-translate="departureStn"></option>
+          </select>
+          <img id="inverter" class="inverter" src="Images/inverter_sign.png"></img>
+          <!-- <label for="arrivalStationSelect">Estação de destino</label> -->
+          <select id="arrivalStationSelect" class="select">
+            <option value="" disabled selected data-translate="arrivalStn"></option>
+          </select>
+          <button id="submitButton" data-translate="searchBtn"></button>
+        </div>
+      </div>
+    </header>
+    
+    <main id="initial_page">
+      <section>
+        <div id="slider">
+          <div class="slide active">
+            <img src="Images/loba_passageiros2.jpg" alt="Slide 1">
+          </div>
+          <div class="slide toggled" >
+            <img src="Images/V8_passageiros2.jpg" alt="Slide 3">
+          </div>
+          <div class="slide toggled" >
+            <img src="Images/PS1-version3.jpg" alt="Slide 2">
+          </div>
+          <div class="slide toggled" >
+            <img src="Images/passageiros_larga.jpg" alt="Slide 4">
+          </div>
+          <div class="slide toggled" >
+            <img src="Images/PS6.jpg" alt="Slide 5">
+          </div>
+          <div class="slide toggled" >
+            <img src="Images/PS1-version4.jpg" alt="Slide 6">
+          </div>
+          <div class="slide toggled" >
+            <img src="Images/PP1-version2.jpg" alt="Slide 7">
+          </div>
+          <div class="slide toggled">
+            <img src="Images/PS6_2.jpg" alt="Slide 8">
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="section--1">
+        <div class="section-title" data-translate="map"></div>
+        <div class="map-container">
+          <img src="Images/fepasa_map_v4.png" alt="Mapa">
+        </div>
+      </section>
+
+      <section class="section" id="section--2">
+        <div class="section-title" data-translate="about"></div>
+        <div>
+          <p id="site_texts" data-translate="aboutText1"></p>
+          <p id="site_texts" data-translate="aboutText2"></p>
+          <p id="site_texts" data-translate="aboutText3"></p>
+        </div>
+      </section>
+
+    </main>
+
+    <main id="results_page" class="hidden">
+      <div id="originDestination">
+        <img class="to-from_icons" src="Images/location_icon2.png"></img>
+        <div id="origin"></div>
+        <img class="to-from_icons" src="Images/destination_arrow_red.png"></img>
+        <div id="destination"></div>
+      </div>
+
+      <div class="train_options">
+        <div id="train_options__row">
+          
+        </div>
+        <img class="black_arrow" src="Images/destination_arrow_black.png"></img>
+        
+      </div>
+    </main>
+    <footer>
+      <p class="footer">Developer: Mr. Fabio Dias</p>
+      <p>Contact:
+        <a id="email" href="mailto:mrfabiodias@gmail.com">mrfabiodias@gmail.com</a>
+      </p>
+    </footer>
+  </body>
+  <!-- <script src="script.js"></script> -->
+
+</html>
