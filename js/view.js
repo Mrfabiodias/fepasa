@@ -27,8 +27,6 @@ export function hideElement(element) {
 
 // Toggle page content (switch from home, initial page to train results page)
 export function togglePages(element, element2) {
-  // element.style.display = 'none';
-  // element2.style.display = 'block';
   element.classList.add('hidden');
   element2.classList.remove('hidden');
 }
@@ -37,11 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const departureStationSelect = document.getElementById(
     'departureStationSelect'
   );
-
-  //call getAStations to fetch data and populate the dropdown button>
-  // getAStations(function (AStations) {
-  //   populateDropdown(departureStationSelect, AStations);
-  // });
 });
 
 const arrivalStationSelect = document.getElementById('arrivalStationSelect');
@@ -49,49 +42,27 @@ const submitButton = document.getElementById('submitButton');
 let destStations = [];
 
 // Listen for changes in the departure dropdown
-departureStationSelect.addEventListener(
-  'change',
-  function () {
-    selectedDepartureStation = departureStationSelect.value;
-    // console.log(selectedDepartureStation);
-    // Empty destination dropdown options (leaving only the first option - "Destino"):
-    arrivalStationSelect.options.length = 1;
-    // Forcing the default option "Destino" to be shown before the user clicks on the Destination station dropdown:
-    arrivalStationSelect.options[0].selected = true;
-    // Iterate to find all possible destination stations if you take a train at the selected departure station
-    // for (const elem of trainsSoroc) {
-    //   for (const station of elem) {
-    //     if (station.includes(selectedDepartureStation)) {
-    //       elem.forEach(function (element) {
-    //         if (typeof element === 'object') {
-    //           if (!destStations.includes(element[0])) {
-    //             if (element[0] !== selectedDepartureStation) {
-    //               destStations.push(element[0]);
-    //             }
-    //           }
-    //         }
-    //       });
-    //     }
-    //   }
-    // }
-    // console.log(destStations);
-    // Populate departure dropdown only with the stations that can be reached with a direct train:
-    getBStations(function () {
-      populateDropdown(arrivalStationSelect, BStations);
-      console.log(BStations);
-    });
+departureStationSelect.addEventListener('change', function () {
+  selectedDepartureStation = departureStationSelect.value;
 
-    // Empty destination stations array for the next user search:
-  }
+  // Empty destination dropdown options (leaving only the first option - "Destino"):
+  arrivalStationSelect.options.length = 1;
+  // Forcing the default option "Destino" to be shown before the user clicks on the Destination station dropdown:
+  arrivalStationSelect.options[0].selected = true;
 
-  // Insert here the logic to populate the dropdown options for the "TO" station, creating a function that gets as an argument the selected departure station, and generate an array with new station options that are served by the same trains as the selected departure station. Once that array of stations is created and sorted, I will use the populate dropdown function to populate the "TO" dropdown value options.
-);
+  // Populate departure dropdown only with the stations that can be reached with a direct train:
+  getBStations(function () {
+    populateDropdown(arrivalStationSelect, BStations);
+    console.log(BStations);
+  });
 
+  // Empty destination stations array for the next user search:
+});
+
+// Pictures sliders
 export const initializeSlider = function () {
   document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('#slider');
-    // slider.style.transform = 'scale(0.5) translateX(-200px)';
-    // slider.style.overflow = 'visible';
 
     const slides = document.querySelectorAll('.slide');
     // let current = slides[0];
@@ -103,38 +74,6 @@ export const initializeSlider = function () {
     moveToNextSlide(slides);
   });
 };
-
-// export const initializeSlider = function () {
-//   document.addEventListener('DOMContentLoaded', function () {
-//     const slider = document.getElementById('slider');
-//     const slides = document.querySelectorAll('.slide');
-//     let currentSlideIndex = 0;
-
-//     function showSlide(index) {
-//       slides.forEach((slide, i) => {
-//         if (i === index) {
-//           slide.style.transform = 'translateX(0)';
-//         } else {
-//           slide.style.transform = 'translateX(100%)';
-//         }
-//       });
-//       currentSlideIndex = index;
-//     }
-
-//     function goToNextSlide() {
-//       currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-//       showSlide(currentSlideIndex);
-//     }
-
-//     showSlide(currentSlideIndex);
-
-//     setInterval(function () {
-//       goToNextSlide();
-//       console.log(currentSlideIndex);
-//       console.log('changing slide');
-//     }, 4000);
-//   });
-// };
 
 ////////////////////////
 // Sticky banner navigation
@@ -219,12 +158,6 @@ const moveToNextSlide = function (slides) {
   }, 5000);
 };
 
-//////////////////////////
-//Return to home page
-// fepasaHome.addEventListener('click', function () {
-//   togglePages(resultsPage, initialPage);
-// });
-
 ///////////
 
 // The Menu button
@@ -244,6 +177,9 @@ const displayMenu = function () {
 };
 
 menu.addEventListener('click', displayMenu);
+menuWindow.addEventListener('mouseleave', () => {
+  if (!menuWindow.classList.contains('hidden')) displayMenu();
+});
 menuWindow.addEventListener('click', displayMenu);
 
 // The Language Menu button
@@ -257,6 +193,9 @@ const displayLangMenu = function () {
 };
 
 langMenu.addEventListener('click', displayLangMenu);
+langMenuWindow.addEventListener('mouseleave', () => {
+  if (!langMenuWindow.classList.contains('hidden')) displayLangMenu();
+});
 langMenuWindow.addEventListener('click', displayLangMenu);
 
 ////////////
@@ -304,5 +243,3 @@ const scrollToTop = function () {
     behavior: 'smooth', // Smooth scrolling animation
   });
 };
-
-//never mind

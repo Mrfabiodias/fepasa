@@ -4,7 +4,7 @@ let possibleTrains = []; // every train serving station A - to be used on a futu
 
 export let AStations = [];
 
-// collects from the database all stations served by the Fepasa trains
+// Gets all stations served by the Fepasa trains from the database (for initial user  selection):
 export const getAStations = function (callback) {
   fetch('trains.json')
     .then(res => res.json())
@@ -22,7 +22,7 @@ export const getAStations = function (callback) {
 
 export let BStations = [];
 
-// Check all stations that can be connected by train from stationA
+// Check all destination stations that can be connected by train from departure station (stationA):
 export const getBStations = function (stationA, callback) {
   BStations = [];
   fetch('trains.json')
@@ -53,7 +53,7 @@ export const getBStations = function (stationA, callback) {
     });
 };
 
-//
+// Emptying the array for the next train search:
 let rawTrainOptions = [];
 export let trainOptions = [];
 
@@ -95,6 +95,7 @@ export const resetTrainOptions = function () {
   trainOptions = [];
 };
 
+// Searches for the trains that connect the origin and the destination stations (stationA and stationB):
 export const trainCheck = async function (stationA, stationB) {
   resetTrainOptions();
 
@@ -142,6 +143,7 @@ class TrainUi {
   }
 }
 
+// Function to convert the time format that comes from DB into readable time format, considereing UTC time zone
 const convertTimeformat = function (UTCtime) {
   // Split the offset time (03:06) into hours and minutes
   const offsetHours = 3;

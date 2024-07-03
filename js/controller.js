@@ -37,10 +37,6 @@ departureStationSelect.addEventListener('change', function () {
 
   getBStations(stationA, function (BStations) {
     // emptying the arrival station options (except the first one (placeholder option - "DESTINO"))prior to repopulating it with more options.
-    // if (arrivalStationSelect.options.length > 1) {
-    //   arrivalStationSelect.remove(1); // Remove options at indexes greater than 0
-    //   arrivalStationSelect.selectedIndex = 0;
-    // }
 
     arrivalStationSelect.options.length = 1;
     arrivalStationSelect.options[0].selected = true;
@@ -79,13 +75,10 @@ submitButton.addEventListener('click', function () {
         const teste = ['grey', 'blue'];
 
         simulator.style.display = 'none';
-        // simulator.style.visibility = 'hidden';
-        // simulator.style.pointerEvents = 'none';
 
         // Get the state language
         const htmlElement = document.documentElement; // Get the <html> element
         const curLanguage = htmlElement.lang;
-        // const curLanguage = htmlElement.lang.split('-')[0];
 
         //Display available trains
         const availableTrains = document.querySelector('.train_options');
@@ -117,7 +110,7 @@ submitButton.addEventListener('click', function () {
                 </div>`;
 
           availableTrains.insertAdjacentHTML('beforeend', html);
-          console.log(curLanguage);
+          // console.log(curLanguage);
 
           // document.getElementById('train_options__row').innerHTML = html;
 
@@ -131,15 +124,9 @@ submitButton.addEventListener('click', function () {
         console.error('Error checking trains:', error);
       });
   } else {
-    alert(
-      // 'Please select both departure and arrival stations before submitting.'
-      translations[document.documentElement.lang].alertMsg
-      // 'Selecione a estação de origem e de destino para procurar as opções de trens.'
-    );
+    alert(translations[document.documentElement.lang].alertMsg);
   }
 });
-
-//${translations[language].train}
 
 // Invert trip direction between to-from:
 btnInvert.addEventListener('click', function () {
@@ -185,13 +172,9 @@ btnInvert.addEventListener('click', function () {
 
     getBStations(stationA, function (BStations) {
       // emptying the arrival station options (except the first one (placeholder option - "DESTINO"))prior to repopulating it with more options.
-      // if (arrivalStationSelect.options.length > 1) {
-      //   arrivalStationSelect.remove(1); // Remove options at indexes greater than 0
-      //   arrivalStationSelect.selectedIndex = 0;
-      // }
 
       arrivalStationSelect.options.length = 0;
-      // arrivalStationSelect.options[0].selected = true;
+
       populateDropdown(arrivalStationSelect, BStations);
       for (let i = 0; i < arrivalStationSelect.options.length; i++) {
         if (arrivalStationSelect.options[i].value === selectedArrivalStation) {
@@ -303,17 +286,4 @@ const populateDeptOptions = function () {};
 const populateArrivalOptions = function () {}; // will listen to change in the selection of departure options
 const findTrains = function () {}; // will listen to Search button click and take in arrival selected option to set StationB
 
-// Display the train pictures
-// let currentIndex = 0;
-// const slides = document.querySelectorAll('.slide');
-// const totalSlides = slides.length;
-
-// function nextSlide() {
-//   slides[currentIndex].style.display = 'none'; // Hide the current slide
-//   currentIndex = (currentIndex + 1) % totalSlides; // Move to the next slide
-//   slides[currentIndex].style.display = 'block'; // Show the next slide
-// }
-
-// Automatically advance to the next slide every 5 seconds
-// setInterval(nextSlide, 4000);
 ////////////////////////////////////
