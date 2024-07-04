@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel index.html && npm copy-assets",
     "build": "parcel build index.html && npm copy-assets",
-    "copy-assets": "cp -r public/* dist/"
+    "copy-assets": "copy trains.json dist\\"
   },
   "author": "MrFabioDias",
   "license": "ISC",
