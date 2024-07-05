@@ -98,7 +98,7 @@ submitButton.addEventListener('click', function () {
                     <div class="title">${translations[curLanguage].departure}</div>
                     <div class="value">${train.departureTime}</div>
                   </div>
-                  <img id="to-sign" src="destination_arrow_black.10f2e7b9.png"></img>
+                  <img id="to-sign" src="destination_arrow_black.png"></img>
                   <div id="train-info2">
                     <div class="title">${translations[curLanguage].arrival}</div>
                     <div class="value">${train.arrivalTime}</div>

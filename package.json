@@ -4,9 +4,9 @@
   "description": "",
   "main": "controller.js",
   "scripts": {
-    "start": "parcel index.html && npm copy-assets",
+    "start": "parcel index.html && npm run copy-assets",
     "build": "parcel build index.html && npm run copy-assets",
-    "copy-assets": "cpx trains.json dist/"
+    "copy-assets": "cpx 'Images/destination_arrow_black.png' dist/ && cpx 'trains.json' dist/"
   },
   "author": "MrFabioDias",
   "license": "ISC",
